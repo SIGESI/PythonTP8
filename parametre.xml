@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<parametres longDeToile="400" hautDeToile="300"  nbrDeFourmis="3" nbrIteration="1000">
+    <fourmis>
+       <couleurDeposee></couleurDeposee>  <!--la couleur déposée : (CR,CV,CB), -->
+       <couleurSuivi></couleurSuivi> <!--la couleur suivie : (S R, S V, S B), -->
+       <prob></prob> <!-- les probabilités qui régissent le mouvement de la fourmi : (Pg, Pd, Pt),-->
+       <type></type> <!--le type de mouvement : Do(0) or Dd(1), -->
+       <probDeSuivre></probDeSuivre> <!--la probabilité de suivre la coureur suivie (si elle est trouvée) : Ps -->
+    </fourmis>
+    <fourmis>
+       <couleurDeposee></couleurDeposee>
+       <couleurSuivi></couleurSuivi>
+       <prob></prob>
+       <type></type>
+       <probDeSuivre></probDeSuivre>
+    </fourmis>
+    <fourmis>
+       <couleurDeposee></couleurDeposee>
+       <couleurSuivi></couleurSuivi>
+       <prob></prob>
+       <type></type>
+       <probDeSuivre></probDeSuivre>
+    </fourmis>
+</parametres>
