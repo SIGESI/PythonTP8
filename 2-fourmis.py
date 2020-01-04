@@ -30,7 +30,6 @@ class Parametre:
 
 class Fourmis :
     def __init__(self, positionInit, direction, typeMouvment, prob, probDeSuivre, couleurDeposee, couleurSuivi):
-        self.positionInit = positionInit
         self.positionActuelle = positionInit
         self.direction = direction
         self.voisins=[]
@@ -120,11 +119,12 @@ class Fourmis :
         for i, n in enumerate(self.voisins):
             # Lum(R,G, B) = 0,242 6 · R + 0,715 2 · V + 0,072 2 · B
             lum = 0.2426 * n[0] + 0.7152 * n[1] + 0.0722 * n[2]
-            lumDeposee = 0.2426 * self.couleurDeposee[0] + 0.7152 * self.couleurDeposee[1] + 0.0722 * self.couleurDeposee[2]
+            lumDeposee = 0.2426 * self.couleurSuivi[0] + 0.7152 * self.couleurSuivi[1] + 0.0722 * self.couleurSuivi[2]
             diffLum = np.absolute(lum - lumDeposee)  #Δ(S R, S V, S B, R, V, B) = |Lum(S R, S V, S B) − Lum(R, V, B)|.
             if diffLum < 40:
 
-                pic[self.positionActuelle[0]][self.positionActuelle[1]] = self.couleurDeposee
+                pic[self.positionActuelle[0]][self.positionActuelle[1]] = self.couleurSuivi
+                print("test")
                 self.positionActuelle = self.positionVoisins[i]
                 if i == 0:
                     self.direction -= (self.typeMouvment + 1)
@@ -141,8 +141,8 @@ class Fourmis :
     def lancer(self):
         self.getVoisins()
         directionDetermi = self.determinerDirection()
-        suivre=np.random.random()
-        if suivre<self.probDeSuivre:
+        probsuiv=np.random.random() #suivre selon la probabilité
+        if probsuiv<self.probDeSuivre:
             self.calculLuminance(directionDetermi)
         else:
             pic[self.positionActuelle[0]][self.positionActuelle[1]] = self.couleurDeposee
